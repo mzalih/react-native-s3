@@ -181,6 +181,10 @@ public class RNS3TransferUtility extends ReactContextBaseJavaModule {
     } else if (credentialsProvider != null) {
       s3 = new AmazonS3Client(credentialsProvider);
     }
+    if (credentialsOptions.containsKey("accelerate_mode_enabled") &&
+            (Boolean) credentialsOptions.get("accelerate_mode_enabled")) {
+      s3.setS3ClientOptions(S3ClientOptions.builder().setAccelerateModeEnabled(true).build());
+    }
     s3.setRegion(region);
     transferUtility = new TransferUtility(s3, context);
     return true;
