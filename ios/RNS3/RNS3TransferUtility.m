@@ -135,8 +135,10 @@ static NSString* instanceKey = @"RNS3TransferUtility";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:region
                                                                          credentialsProvider:credentialsProvider];
 AWSS3TransferUtilityConfiguration *transferUtilityConfiguration = [[AWSS3TransferUtilityConfiguration alloc] init];
-   
+
+    if([options[@"accelerate_mode_enabled"] != null){
        transferUtilityConfiguration.accelerateModeEnabled = [options[@"accelerate_mode_enabled"] boolValue] == YES;
+    }
 
     [AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:configuration
                                         transferUtilityConfiguration:transferUtilityConfiguration
