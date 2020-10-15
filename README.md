@@ -117,6 +117,7 @@ You can use [rnpm](https://github.com/rnpm/rnpm) instead of above steps.
 <service
   android:name="com.amazonaws.mobileconnectors.s3.transferutility.TransferService"
   android:enabled="true" />
+ <uses-library android:name ="org.apache.http.legacy" android:required ="false"/>
 ```
 
 * __*[Optional]*__ you can set the credentials in `MainActivity.java`:
