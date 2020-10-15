@@ -136,7 +136,7 @@ static NSString* instanceKey = @"RNS3TransferUtility";
                                                                          credentialsProvider:credentialsProvider];
 AWSS3TransferUtilityConfiguration *transferUtilityConfiguration = [[AWSS3TransferUtilityConfiguration alloc] init];
 
-    if([options[@"accelerate_mode_enabled"] != null){
+    if(options[@"accelerate_mode_enabled"] != nil){
        transferUtilityConfiguration.accelerateModeEnabled = [options[@"accelerate_mode_enabled"] boolValue] == YES;
     }
 
